@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <description>EndpointInterface</description>
+    <display-name>SOME-WS</display-name>
+
+    <listener>
+        <listener-class>ws.main.ContextListener</listener-class>
+    </listener>
+
+    <servlet>
+        <description>SOME-WS Impl</description>
+        <display-name>SOME-WS</display-name>
+        <servlet-name>SOME-WS</servlet-name>
+        <servlet-class>ws.main.web.WsImpl</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SOME-WS</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+</web-app>
