@@ -1,7 +1,7 @@
 package ws.api.validation.constraints;
 
 
-import ws.api.TX;
+import ws.api.Foo;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
@@ -16,8 +16,8 @@ import static ws.api.validation.constraints.ConstraintUtil.validateMissingRequir
 
 @Target({TYPE})
 @Retention(RUNTIME)
-@Constraint(validatedBy = {TxTypeConstraint.Validator.class})
-public @interface TxTypeConstraint {
+@Constraint(validatedBy = {FooTypeConstraint.Validator.class})
+public @interface FooTypeConstraint {
 
     String message() default "";
 
@@ -25,19 +25,19 @@ public @interface TxTypeConstraint {
 
     Class<? extends Payload>[] payload() default {};
 
-    class Validator implements ConstraintValidator<TxTypeConstraint, PayerAuthentication.TX> {
+    class Validator implements ConstraintValidator<FooTypeConstraint, Foo> {
 
         @Override
-        public void initialize(TxTypeConstraint constraintAnnotation) {
+        public void initialize(FooTypeConstraint constraintAnnotation) {
             // ignored
         }
 
         @Override
-        public boolean isValid(TX value, ConstraintValidatorContext context) {
+        public boolean isValid(Foo value, ConstraintValidatorContext context) {
             return value == null
-                    || (validateMissingRequiredField(value.time, context, "TX.time")
-                        & validateMissingRequiredField(value.status, context, "TX.status")
-                        & validateMissingRequiredField(value.bar, context, "TX.bar"));
+                    || (validateMissingRequiredField(value.time, context, "Foo.time")
+                        & validateMissingRequiredField(value.status, context, "Foo.status")
+                        & validateMissingRequiredField(value.bar, context, "Foo.bar"));
 
         }
     }

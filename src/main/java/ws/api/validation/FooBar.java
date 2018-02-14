@@ -18,9 +18,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({FIELD})
 @Retention(RUNTIME)
 @Constraint(validatedBy = {})
-public @interface TxBar {
+public @interface FooBar {
 
-    String message() default "Invalid value for 2-digit field 'TX.bar': '${validatedValue}'";
+    String message() default "Invalid value for 2-digit field 'Foo.bar': '${validatedValue}'";
 
     Class<?>[] groups() default {};
 

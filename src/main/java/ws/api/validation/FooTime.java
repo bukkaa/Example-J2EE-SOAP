@@ -18,9 +18,9 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({FIELD})
 @Retention(RUNTIME)
 @Constraint(validatedBy = {})
-public @interface TxTime {
+public @interface FooTime {
 
-    String message() default "Field 'TX.time' does not match pattern 'YYYYMMDD HH:MM:SS': '${validatedValue}'";
+    String message() default "Field 'Foo.time' does not match pattern 'YYYYMMDD HH:MM:SS': '${validatedValue}'";
 
     Class<?>[] groups() default {};
 
